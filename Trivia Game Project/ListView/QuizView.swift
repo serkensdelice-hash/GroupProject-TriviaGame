@@ -37,7 +37,14 @@ struct QuizView: View {
                 } else {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 16) {
-                            
+                            // TIMER
+if !submitted {
+    Text("Time: \(viewModel.TimerCountdown)")
+        .font(.title2)
+        .bold()
+        .foregroundColor(.white)
+        .padding()
+}              
                             // SCORE
                             if submitted {
                                 let score = viewModel.questions.filter {
