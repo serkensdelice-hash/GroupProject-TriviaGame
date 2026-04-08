@@ -61,9 +61,10 @@ The Trivia Game App allows users to customize quiz settings such as difficulty, 
 - [x] User can answer questions
 - [x] App displays final score
 
-## 🚧 In Progress
-- [ ] Improve UI Design
-- [ ] Add leaderboard
+### Sprint 3 Progress
+- [x] Add True/False button options for quiz
+- [x] Add Play Again button after quiz submission
+- [x] Improve Options Screen UI design
 
 ## 🎬 Demo Day Video
 [Watch Full Demo](YOUR_YOUTUBE_LINK_HERE)
