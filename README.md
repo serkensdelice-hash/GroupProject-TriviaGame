@@ -39,10 +39,15 @@ The Trivia Game App allows users to customize quiz settings such as difficulty, 
 <img src="https://github.com/user-attachments/assets/2a9432e1-e499-40db-86e3-dd697cc0a16c" width="300">
 
 ### 📱 App Screenshot
+
+### ⚙️ Options Screen
 <img src="https://github.com/user-attachments/assets/722793c2-ccf7-49ac-b1a0-d6af0390c00f" width="300">
-<img src="https://github.com/user-attachments/assets/e7ac3b6d-0fbb-4567-b9a7-1846fd43688a" />
 
+### ❓ Quiz Screen
+<img src="https://github.com/user-attachments/assets/88236b97-95d2-46cb-98f8-63f515c4a126" width="300">
 
+### 🏁 Results Screen
+<img src="https://github.com/user-attachments/assets/1e1e2c4f-68bf-45e1-a393-4cc09ceaac01" width="300">
 
    
 ## 🎥 App Demo Preview
