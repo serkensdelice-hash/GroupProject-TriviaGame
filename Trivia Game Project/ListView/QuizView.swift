@@ -4,6 +4,7 @@ import Combine
 import UIKit
 
 struct QuizView: View {
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel = QuizViewModel()
     @State private var submitted = false
     @State private var userAnswers: [UUID: String] = [:]
@@ -70,21 +71,35 @@ if !submitted {
                                         .fontWeight(.semibold)
                                         .fixedSize(horizontal: false, vertical: true)
                                     
-                                    TextField(
-                                        text: Binding(
-                                            get: { userAnswers[question.id, default: ""] },
-                                            set: { userAnswers[question.id] = $0 }
-                                        ),
-                                        prompt: Text("Type your answer")
-                                    ) {
-                                        EmptyView()
+                                    if type == "boolean" {
+                                        // True / False buttons for boolean questions
+                                        HStack(spacing: 16) {
+                                            ForEach(["True", "False"], id: \.self) { choice in
+                                                Button(choice) {
+                                                    userAnswers[question.id] = choice
+                                                }
+                                                .buttonStyle(.borderedProminent)
+                                                .tint(userAnswers[question.id] == choice ? .blue : .gray)
+                                                .disabled(submitted)
+                                            }
+                                        }
+                                    } else {
+                                        TextField(
+                                            text: Binding(
+                                                get: { userAnswers[question.id, default: ""] },
+                                                set: { userAnswers[question.id] = $0 }
+                                            ),
+                                            prompt: Text("Type your answer")
+                                        ) {
+                                            EmptyView()
+                                        }
+                                        .textFieldStyle(.roundedBorder)
+                                        .disableAutocorrection(true)
+                                        .textInputAutocapitalization(.never)
+                                        .submitLabel(.done)
+                                        .focused($focusedField, equals: question.id)
+                                        .disabled(submitted)
                                     }
-                                    .textFieldStyle(.roundedBorder)
-                                    .disableAutocorrection(true)
-                                    .textInputAutocapitalization(.never)
-                                    .submitLabel(.done)
-                                    .focused($focusedField, equals: question.id)
-                                    .disabled(submitted)
                                     
                                     if submitted {
                                         let userAnswer = userAnswers[question.id, default: ""]
@@ -107,15 +122,24 @@ if !submitted {
                                 .shadow(radius: 3)
                             }
                             
-                            // SUBMIT BUTTON
-                            Button("Submit Quiz") {
-                                submitted = true
-                                viewModel.stopTotalTimer()
-                                hideKeyboard()
+                            // SUBMIT / PLAY AGAIN BUTTON
+                            if submitted {
+                                Button("Play Again") {
+                                    dismiss()
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                            } else {
+                                Button("Submit Quiz") {
+                                    submitted = true
+                                    viewModel.stopTotalTimer()
+                                    hideKeyboard()
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .frame(maxWidth: .infinity)
+                                .padding()
                             }
-                            .buttonStyle(.borderedProminent)
-                            .frame(maxWidth: .infinity)
-                            .padding()
                         }
                     }
                 }
