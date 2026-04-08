@@ -36,3 +36,6 @@ The Trivia Game App allows users to customize quiz settings such as difficulty, 
 # 🖼️ Wireframes
 
 (Add your images here)
+
+## 🎥 App Demo Preview
+![Trivia Demo](demo.gif)
