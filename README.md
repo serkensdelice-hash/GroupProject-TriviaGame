@@ -40,7 +40,11 @@ The Trivia Game App allows users to customize quiz settings such as difficulty, 
 
 ### 📱 App Screenshot
 <img src="https://github.com/user-attachments/assets/722793c2-ccf7-49ac-b1a0-d6af0390c00f" width="300">
+<img src="https://github.com/user-attachments/assets/e7ac3b6d-0fbb-4567-b9a7-1846fd43688a" />
 
+
+
+   
 ## 🎥 App Demo Preview
 ![Trivia Demo](SimulatorScreenRecording-iPhone17Pro-2026-04-08at14.17.53-ezgif.com-video-to-gif-converter.gif)
 
