@@ -67,4 +67,4 @@ The Trivia Game App allows users to customize quiz settings such as difficulty, 
 - [x] Improve Options Screen UI design
 
 ## 🎬 Demo Day Video
-[Watch Full Demo](YOUR_YOUTUBE_LINK_HERE)
+https://www.loom.com/share/5b2c036b23f9484fbe0059253fa85486
