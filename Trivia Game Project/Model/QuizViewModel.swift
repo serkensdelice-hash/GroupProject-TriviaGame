@@ -28,6 +28,12 @@ class QuizViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var TimerCountdown: Int = 200
+
+    var timerDisplay: String {
+        let minutes = TimerCountdown / 60
+        let seconds = TimerCountdown % 60
+        return "\(minutes):\(String(format: "%02d", seconds))"
+    }
     private var timer : Timer?
     
     

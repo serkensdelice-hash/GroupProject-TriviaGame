@@ -40,7 +40,7 @@ struct QuizView: View {
                         VStack(alignment: .leading, spacing: 16) {
                             // TIMER
 if !submitted {
-    Text("Time: \(viewModel.TimerCountdown)")
+    Text("Time: \(viewModel.timerDisplay)")
         .font(.title2)
         .bold()
         .foregroundColor(.white)
