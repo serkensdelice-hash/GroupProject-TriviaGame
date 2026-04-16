@@ -21,7 +21,7 @@ struct QuizView: View {
                 
                 // Background
                 LinearGradient(
-                    colors: [.green],
+                    colors: [Color.blue, Color.green],
                     startPoint: .top,
                     endPoint: .bottom
                 )

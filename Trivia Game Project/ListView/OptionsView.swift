@@ -15,31 +15,58 @@ struct OptionsView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Stepper("Number of Questions: \(amount)", value: $amount, in: 1...20)
+            ZStack {
+                LinearGradient(
+                    colors: [Color.blue , Color.green],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
                 
-                Picker("Difficulty", selection: $difficulty) {
-                    Text("Easy").tag("easy")
-                    Text("Medium").tag("medium")
-                    Text("Hard").tag("hard")
+                
+                Form {
+                    Section(header: Text("Quiz Setup")) {
+                        Stepper("Questions: \(amount)", value: $amount, in: 1...20)
+                    }
+                    
+                    Section(header: Text("Difficulty")) {
+                        Picker("Difficulty", selection: $difficulty) {
+                            Label("Easy", systemImage: "leaf").tag("easy")
+                            Label("Medium", systemImage: "flame").tag("medium")
+                            Label("Hard", systemImage: "bolt").tag("hard")
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    
+                    Section(header: Text("Question Type")) {
+                        Picker("Type", selection: $type) {
+                            Text("Typing").tag("multiple")
+                            Text("True / False").tag("boolean")
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    Section {
+                        NavigationLink(
+                            destination: QuizView(
+                                amount: amount,
+                                category: category,
+                                difficulty: difficulty,
+                                type: type
+                            )
+                        ) {
+                            Text("Start Quiz")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue.opacity(0.2))
+                                .foregroundColor(.black)
+                                .cornerRadius(12)
+                        }
+                    }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                Picker("Type", selection: $type) {
-                    Text("Typing Questions").tag("multiple")
-                    Text("True / False").tag("boolean")
+                        .scrollContentBackground(.hidden)
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                NavigationLink("Start Quiz",
-                               destination: QuizView(amount: amount,
-                                                     category: category,
-                                                     difficulty: difficulty,
-                                                     type: type))
+                .navigationTitle("Trivia Options")
             }
-            .navigationTitle("Trivia Options")
-            }
-        
+            
         }
     }
-
